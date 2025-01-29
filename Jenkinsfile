@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_REGION = 'us-east-1'  // Set your AWS region
-        your-account-id = '686255964186'
+        
         ECR_REPOSITORY = 'sample'  
         ECS_CLUSTER = 'new-app'  
         ECS_SERVICE = 'demoservice'  
@@ -23,7 +23,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def image = "${your-account-id}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}"
+                    def image = "686255964186.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}"
                     sh """
                         aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin your-account-id.dkr.ecr.${AWS_REGION}.amazonaws.com
                         docker build -t ${image} .
