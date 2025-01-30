@@ -56,9 +56,10 @@ pipeline {
                     sh """
                         aws ecs update-service --cluster ${ECS_CLUSTER} --service ${ECS_SERVICE} --force-new-deployment
                     """
+                    }
                 }
-            }
-        }   
+            }   
+        }
     }
-}
+
 
