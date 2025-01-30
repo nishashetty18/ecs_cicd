@@ -38,7 +38,7 @@
     "executionRoleArn": "arn:aws:iam::686255964186:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "volumes": [],
-    "status": "ACTIVE",
+    
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -69,21 +69,12 @@
         }
     ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
+    
     "cpu": "1024",
     "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2025-01-30T08:47:29.738Z",
-    "registeredBy": "arn:aws:iam::686255964186:root",
-    "enableFaultInjection": false,
-    "tags": []
+    }
+   
 }
