@@ -5,7 +5,8 @@ pipeline {
         AWS_REGION = 'us-east-1'  // Set your AWS region
         ECR_REPOSITORY = 'sample'  
         ECS_CLUSTER = 'new-app'  
-        ECS_SERVICE = 'demoservice'  
+        ECS_SERVICE = 'demoservice' 
+        TASK_DEFINITION_FAMILY = 'jenkins_task' 
         TASK_DEFINITION_FILE = 'task-defination.json' 
         IMAGE_TAG = "${env.BUILD_NUMBER}" 
     }
@@ -51,9 +52,15 @@ pipeline {
             steps {
                 script {
                     withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh """
-                        aws ecs update-service --cluster ${ECS_CLUSTER} --service ${ECS_SERVICE} --force-new-deployment
-                    """
+                    def newRevision = sh(script: """
+                            aws ecs describe-task-definition --task-definition ${TASK_DEFINITION_FAMILY} --query "taskDefinition.revision" --output text
+                        """, returnStdout: true).trim()
+
+                        echo "Updating ECS service with task definition revision: ${TASK_DEFINITION_FAMILY}:${newRevision}"
+
+                        sh """
+                            aws ecs update-service --cluster ${ECS_CLUSTER} --service ${ECS_SERVICE} --task-definition ${TASK_DEFINITION_FAMILY}:${newRevision} --force-new-deployment
+                        """
                     }
                 }
             }   
