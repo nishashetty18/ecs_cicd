@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         AWS_REGION = 'us-east-1'  // Set your AWS region
-        
         ECR_REPOSITORY = 'sample'  
         ECS_CLUSTER = 'new-app'  
         ECS_SERVICE = 'demoservice'  
@@ -32,6 +31,8 @@ pipeline {
                 }
             }
         }
+
+
 
         
     }
