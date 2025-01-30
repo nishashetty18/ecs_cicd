@@ -47,7 +47,6 @@ pipeline {
                 }
             }
         }
-
         stage('Update ECS Service') {
             steps {
                 script {
