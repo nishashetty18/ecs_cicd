@@ -37,7 +37,6 @@
     "family": "jenkins_task",
     "executionRoleArn": "arn:aws:iam::686255964186:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
