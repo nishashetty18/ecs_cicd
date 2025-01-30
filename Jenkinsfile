@@ -46,7 +46,7 @@ pipeline {
                                 -v /root/.aws:/root/.aws \
                                 gcr.io/kaniko-project/executor:latest \
                                 --context /workspace --dockerfile /workspace/Dockerfile \
-                                --destination=${IMAGE_URI}
+                                --destination=${IMAGE_URI} --no-push=false
                         """
                     }
                 }
@@ -96,6 +96,7 @@ pipeline {
         }
     }
 }
+
 
 
 
