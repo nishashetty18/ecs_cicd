@@ -19,6 +19,7 @@ pipeline {
                 }
             }
         }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -47,6 +48,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Update ECS Service') {
             steps {
                 script {
