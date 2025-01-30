@@ -1,5 +1,4 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:686255964186:task-definition/jenkins_task:1",
     "containerDefinitions": [
         {
             "name": "demo",
