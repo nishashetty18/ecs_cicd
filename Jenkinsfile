@@ -41,7 +41,7 @@ pipeline {
                     withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                         sh """
                             echo "Building and pushing Docker image using Kaniko..."
-                            docker run --rm -v /var/jenkins_home/workspace/jenkins-demo:/workspace -v /root/.aws:/root/.aws gcr.io/kaniko-project/executor:latest --context /workspace --dockerfile /workspace/Dockerfile --destination=${IMAGE_URI} --no-push=false
+                            /kaniko/executor --context /var/jenkins_home/workspace/jenkins-demo --dockerfile /var/jenkins_home/workspace/jenkins-demo/Dockerfile --destination=${IMAGE_URI} --no-push=false
                         """
                     }
                 }
@@ -91,6 +91,7 @@ pipeline {
         }
     }
 }
+
 
 
 
