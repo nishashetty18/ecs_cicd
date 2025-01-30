@@ -33,7 +33,6 @@ pipeline {
                     sh """
                         jq '.containerDefinitions[0].image = "${image}"' ${TASK_DEFINITION_FILE} > updated-task-definition.json
                     """
-                    }
                 }
             }
         }
@@ -48,7 +47,6 @@ pipeline {
                 }
             }
         }
-
         stage('Update ECS Service') {
             steps {
                 script {
@@ -61,5 +59,6 @@ pipeline {
             }   
         }
     }
+}
 
 
