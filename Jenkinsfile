@@ -34,7 +34,6 @@ pipeline {
                 }
             }
         }
-
         stage('Build and Push Docker Image using Kaniko') {
             steps {
                 script {
