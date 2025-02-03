@@ -100,12 +100,6 @@
 
 pipeline {
     agent {
-        docker {
-            image 'amazonlinux'   // Use an Amazon Linux image with AWS CLI
-            args '-u root'        // Run as root to avoid permission issues
-        }
-    }
-
     environment {
         AWS_REGION = 'us-east-1'  // Set your AWS region
         ECR_REPOSITORY = 'sample'  
@@ -171,6 +165,7 @@ pipeline {
             }   
         }
     }
+}
 }
 
 
