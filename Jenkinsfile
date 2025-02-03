@@ -99,7 +99,7 @@
 
 
 pipeline {
-    agent {
+    agent any
         environment {
             AWS_REGION = 'us-east-1'  // Set your AWS region
             ECR_REPOSITORY = 'sample'  
@@ -166,6 +166,6 @@ pipeline {
             }
         }
     }
-}
+
 
 
