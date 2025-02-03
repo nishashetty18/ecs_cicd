@@ -109,6 +109,7 @@ pipeline {
         TASK_DEFINITION_FILE = 'task-defination.json' 
         IMAGE_TAG = "${env.BUILD_NUMBER}" 
     }
+    
     stages {
         stage('Checkout Code') {
             steps {
