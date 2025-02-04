@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Add Jenkins user to the Docker group so it can run Docker commands
 RUN usermod -aG docker jenkins
 
