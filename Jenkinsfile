@@ -125,6 +125,7 @@ pipeline {
                     withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh """
                         docker info
+                        docker  build -t -it --entrypoint /bin/bash ${image}
                         aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin 686255964186.dkr.ecr.${AWS_REGION}.amazonaws.com
                         docker build -t ${image} .
                         docker push ${image}
