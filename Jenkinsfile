@@ -101,7 +101,7 @@
 pipeline {
     agent any
     environment {
-        AWS_REGION = 'us-east-1'  // Set your AWS region
+        AWS_REGION = 'us-east-1'  
         ECR_REPOSITORY = 'sample'  
         ECS_CLUSTER = 'new-app'  
         ECS_SERVICE = 'demoservice' 
