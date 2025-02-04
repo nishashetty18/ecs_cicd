@@ -2,6 +2,8 @@ FROM jenkins/jenkins:lts
 
 USER root
 
+RUN apt-get update && apt-get install sudo -y  
+ 
 # Install AWS CLI
 RUN apt-get update && apt-get install -y awscli
 
