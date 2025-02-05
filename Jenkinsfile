@@ -99,7 +99,9 @@
 
 
 pipeline {
-    agent any
+    agent {
+        label 'ecs'
+    }
     environment {
         AWS_REGION = 'us-east-1'  
         ECR_REPOSITORY = 'sample'  
